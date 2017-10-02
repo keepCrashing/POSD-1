@@ -1,5 +1,5 @@
 #ifndef UTTERM_H
-#define UTTERM_H
+#define UTTE
 
 //test Number.value()
 TEST (Number,ctor) {
