@@ -1,5 +1,5 @@
 #ifndef UTTERM_H
-#define UTTERM_H
+#define UTTE
 
 #include "include/Atom.h"
 #include "include/Variable.h"
