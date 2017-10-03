@@ -64,7 +64,7 @@ TEST ( Atom , matchSuccessToVar ) {
 	Variable X ( "X" );
 	EXPECT_TRUE ( tom.match ( X ) );
 }
-
+/*
 // ?- X=tom, tom=X.
 // X = tom.
 TEST ( Atom , matchSuccessToVarInstantedToDiffConstant ) {
@@ -131,5 +131,5 @@ TEST( Variable , reAssignTheSameAtom ){
 	X.match ( tom );
 	EXPECT_TRUE ( X.match ( tom ) );
 }
-
+*/
 #endif
