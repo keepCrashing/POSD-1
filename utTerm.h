@@ -46,7 +46,7 @@ TEST ( Number , matchFailureDiffConstant ) {
 TEST ( Number , matchSuccessToVar ) {
 	Number number ( 25 );
 	Variable X ( "X" );
-	EXPECT_TRUE ( number.match ( X ) );
+	ASSERT_TRUE ( number.match ( X ) );
 }
 
 //?- tom=25.
@@ -62,7 +62,7 @@ TEST ( Atom , matchFailureDiffConstant ) {
 TEST ( Atom , matchSuccessToVar ) {
 	Atom tom ( "tom" );
 	Variable X ( "X" );
-	EXPECT_TRUE ( tom.match ( X ) );
+	ASSERT_TRUE ( tom.match ( X ) );
 }
 
 // ?- X=tom, tom=X.
@@ -71,7 +71,7 @@ TEST ( Atom , matchSuccessToVarInstantedToDiffConstant ) {
 	Variable X ( "X" );
 	Atom tom ( "tom" );
 	X.match ( tom );
-	EXPECT_TRUE ( tom.match ( X ) );
+	ASSERT_TRUE ( tom.match ( X ) );
 }
 
 // ?- X=jerry, tom=X.
@@ -81,7 +81,7 @@ TEST ( Atom , matchFailureToVarInstantedToDiffConstant ) {
 	Atom tom ( "tom" );
 	Atom jerry ( "jerry" );
 	X.match ( jerry );
-	EXPECT_FALSE ( tom.match ( X ) );
+	ASSERT_FALSE ( tom.match ( X ) );
 }
 
 // ?- X = 5.
@@ -89,7 +89,7 @@ TEST ( Atom , matchFailureToVarInstantedToDiffConstant ) {
 TEST ( Variable , matchSuccessToNumber ) {
 	Variable X ( "X" );
 	Number number ( 5 );
-	EXPECT_TRUE ( X.match ( number ) );
+	ASSERT_TRUE ( X.match ( number ) );
 }
 
 // ?- X=25, X= 100.
@@ -99,7 +99,7 @@ TEST ( Variable , matchFailureToTwoDiffNumbers ) {
 	Number numberOne ( 25 );
 	Number numberTwo ( 100 );
 	X.match ( numberOne );
-	EXPECT_FALSE ( X.match ( numberTwo ) );
+	ASSERT_FALSE ( X.match ( numberTwo ) );
 }
 
 // ?- X=tom, X= 25.
@@ -109,7 +109,7 @@ TEST ( Variable , matchSuccessToAtomThenFailureToNumber ) {
 	Atom tom ( "tom" );
 	Number number ( 25 );
 	X.match ( tom );
-	EXPECT_FALSE ( X.match ( number ) );
+	ASSERT_FALSE ( X.match ( number ) );
 }
 
 //?- tom=X, 25=X.
@@ -119,7 +119,7 @@ TEST ( Variable , matchSuccessToAtomThenFailureToNumber2 ) {
 	Variable X ( "X" );
 	Number number ( 25 );
 	tom.match ( X );
-	EXPECT_FALSE ( number.match ( X ) );
+	ASSERT_FALSE ( number.match ( X ) );
 }
 
 //?- X=tom, X=tom.
@@ -128,6 +128,6 @@ TEST( Variable , reAssignTheSameAtom ){
 	Variable X ( "X" );
 	Atom tom ( "tom" );
 	X.match ( tom );
-	EXPECT_TRUE ( X.match ( tom ) );
+	ASSERT_TRUE ( X.match ( tom ) );
 }
 #endif
