@@ -1,5 +1,4 @@
-//#include <string>
-#include <sstream>
+#include <string>
 #include "number.h"
 #include "atom.h"
 #include "variable.h"
@@ -21,11 +20,9 @@ bool Number :: match ( Atom atom ){
 }
 
 bool Number :: match ( Variable &variable ){
-	//string temp = std :: to_string( _symbol );
-	std :: stringstream ss;
-	ss << _symbol;
-	if ( variable.assignable() || variable.value() == ss.str() ){
-		variable.setValue ( ss.str() );
+	string temp = std :: to_string( _symbol );
+	if ( variable.assignable() || ( variable.value() == temp ) ){
+		variable.setValue ( temp );
 		variable.setAssignable ( false );
 		return true;	
 	}
