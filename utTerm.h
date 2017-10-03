@@ -47,7 +47,7 @@ TEST ( Number , matchSuccessToVar ) {
 	Number number ( 25 );
 	Variable X ( "X" );
 	number.match ( X );
-	ASSERT_EQ ( "25" , X.value() );
+	EXPECT_TRUE ( ( "25" == X.value() ) ? true : false );
 }
 
 //?- tom=25.
@@ -64,7 +64,7 @@ TEST ( Atom , matchSuccessToVar ) {
 	Atom tom ( "tom" );
 	Variable X ( "X" );
 	tom.match ( X );
-	ASSERT_EQ ( "tom" , X.value() );
+	EXPECT_TRUE ( ( "tom" == X.value() ) ? true : false );
 }
 
 // ?- X=tom, tom=X.
