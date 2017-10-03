@@ -9,15 +9,15 @@ class Variable;
 
 class Number {
 	public :
-		Number ( int symbol ); 
-		int get_symbol();
-		bool get_value();
-		bool matchToNumber ( Number number );
-		bool matchToAtom ( Atom atom );
-		void matchToVariable ( Variable &variable );
+		Number ( int n ); 
+		int getSymbol();
+		bool getValue();
+		bool match ( Number number );
+		bool match ( Atom atom );
+		void match ( Variable &variable );
 	private :
-		const int _symbol;
-		const bool _value = true;
+		const int symbol;
+		const bool value = true;
 };
 #endif
 

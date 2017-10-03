@@ -9,12 +9,12 @@ class Variable;
 
 class Atom {
 	public:
-  		Atom ( string atom );
-		string get_symbol();
-		bool matchToNumber ( Number number );
-		void matchToVariable ( Variable &variable );
+  		Atom ( string a );
+		string getSymbol();
+		bool match ( Number number );
+		void match ( Variable &variable );
   	private:
-		const string _symbol;
+		const string symbol;
 };
 
 #endif

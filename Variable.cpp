@@ -3,28 +3,28 @@
 #include "Number.h"
 #include "Atom.h"
 
-Variable :: Variable ( string variable ) : _symbol ( variable ) {}
+Variable :: Variable ( string v ) : symbol ( v ) {}
 
-bool Variable :: get_assignable () { return _assignable; }
+bool Variable :: getAssignable () { return assignable; }
 
-string Variable :: get_symbol () { return _symbol; } 
+string Variable :: getSymbol () { return symbol; } 
 
-void Variable :: set_assignable ( bool decide ) { _assignable = decide; }
+void Variable :: setAssignable ( bool d ) { assignable = d; }
 
-void Variable :: set_symbol ( string changeForm ) { _symbol = changeForm; }
+void Variable :: setSymbol ( string c ) { symbol = c; }
 
-void Variable :: matchToAtom ( Atom atom ){
-	if ( _assignable || _symbol == atom.get_symbol() ){
-		_symbol = atom.get_symbol();
-		_assignable = false;	
+void Variable :: match ( Atom atom ){
+	if ( assignable || symbol == atom.getSymbol() ){
+		symbol = atom.getSymbol();
+		assignable = false;	
 	}
 }
 
-void Variable :: matchToNumber ( Number number ){
+void Variable :: match ( Number number ){
 	std :: stringstream ss;
-	ss << number.get_symbol();
-	if ( _assignable || _symbol == ss.str() ){
-		_symbol = ss.str();
-		_assignable = false;
+	ss << number.getSymbol();
+	if ( assignable || symbol == ss.str() ){
+		symbol = ss.str();
+		assignable = false;
 	}
 }

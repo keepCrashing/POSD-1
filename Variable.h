@@ -9,16 +9,16 @@ class Number;
 
 class Variable{
 	public:
-  		Variable ( string variable );
-		bool get_assignable ();
-		string get_symbol ();
-		void set_assignable ( bool decide );
-		void set_symbol ( string changeForm );
-		void matchToAtom ( Atom atom );
-		void matchToNumber ( Number number );	
+  		Variable ( string v );
+		bool getAssignable ();
+		string getSymbol ();
+		void setAssignable ( bool d );
+		void setSymbol ( string c );
+		void match ( Atom atom );
+		void match ( Number number );	
 	private:
-		string _symbol; 
-		bool _assignable = true; 
+		string symbol; 
+		bool assignable = true; 
 };
 
 #endif

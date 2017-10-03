@@ -8,13 +8,13 @@
 //test Number.value()
 TEST ( Number , ctor ) {
 	Number number ( 15 );
-	ASSERT_TRUE ( number.get_value() );
+	ASSERT_TRUE ( number.getValue() );
 }
 
 //test Number.symbol()
 TEST ( Number , symbol ) {
 	Number number ( 15 ) ;
-	ASSERT_EQ ( 15 , number.get_symbol() );
+	ASSERT_EQ ( 15 , number.getSymbol() );
 }
 
 //?- 25=25.
@@ -22,7 +22,7 @@ TEST ( Number , symbol ) {
 TEST ( Number , matchSuccess ) {
 	Number numberOne ( 25 );
         Number numberTwo ( 25 );
-	ASSERT_TRUE ( numberOne.matchToNumber ( numberTwo ) );
+	ASSERT_TRUE ( numberOne.match ( numberTwo ) );
 }
 
 //?- 25=0.
@@ -30,7 +30,7 @@ TEST ( Number , matchSuccess ) {
 TEST ( Number , matchFailureDiffValue ) {
 	Number numberOne ( 25 );
         Number numberTwo ( 0 );
-	ASSERT_FALSE ( numberOne.matchToNumber ( numberTwo ) );
+	ASSERT_FALSE ( numberOne.match ( numberTwo ) );
 }
 
 //?- 25=tom.
@@ -38,7 +38,7 @@ TEST ( Number , matchFailureDiffValue ) {
 TEST ( Number , matchFailureDiffConstant ) {
 	Number number ( 25 );
 	Atom tom( "tom" );
-	ASSERT_FALSE ( number.matchToAtom ( tom ) );	
+	ASSERT_FALSE ( number.match ( tom ) );	
 }
 
 //?- 25=X.
@@ -46,8 +46,8 @@ TEST ( Number , matchFailureDiffConstant ) {
 TEST ( Number , matchSuccessToVar ) {
 	Number number ( 25 );
 	Variable X ( "X" );
-	number.matchToVariable ( X );
-	ASSERT_EQ ( "25" , X.get_symbol() );
+	number.match ( X );
+	ASSERT_EQ ( "25" , X.getSymbol() );
 }
 
 //?- tom=25.
@@ -55,7 +55,7 @@ TEST ( Number , matchSuccessToVar ) {
 TEST ( Atom , matchFailureDiffConstant ) {
 	Atom tom ( "tom" );
 	Number number ( 25 );
-	ASSERT_FALSE ( tom.matchToNumber ( number ) );
+	ASSERT_FALSE ( tom.match ( number ) );
 }
 
 // ?- tom = X.
@@ -63,8 +63,8 @@ TEST ( Atom , matchFailureDiffConstant ) {
 TEST ( Atom , matchSuccessToVar ) {
 	Atom tom ( "tom" );
 	Variable X ( "X" );
-	tom.matchToVariable ( X );
-	ASSERT_EQ ( "tom" , X.get_symbol() );
+	tom.match ( X );
+	ASSERT_EQ ( "tom" , X.getSymbol() );
 }
 
 // ?- X=tom, tom=X.
@@ -72,9 +72,9 @@ TEST ( Atom , matchSuccessToVar ) {
 TEST ( Atom , matchSuccessToVarInstantedToDiffConstant ) {
 	Variable X ( "X" );
 	Atom tom ( "tom" );
-	X.matchToAtom ( tom );
-	tom.matchToVariable ( X );
-	ASSERT_EQ ( "tom" , X.get_symbol());
+	X.match ( tom );
+	tom.match ( X );
+	ASSERT_EQ ( "tom" , X.getSymbol());
 }
 
 // ?- X=jerry, tom=X.
@@ -83,9 +83,9 @@ TEST ( Atom , matchFailureToVarInstantedToDiffConstant ) {
 	Variable X ( "X" );
 	Atom tom ( "tom" );
 	Atom jerry ( "jerry" );
-	X.matchToAtom ( jerry );
-	tom.matchToVariable ( X );
-	ASSERT_FALSE ( ( "tom" == X.get_symbol() ) ? true : false );
+	X.match ( jerry );
+	tom.match ( X );
+	ASSERT_FALSE ( ( "tom" == X.getSymbol() ) ? true : false );
 }
 
 // ?- X = 5.
@@ -93,8 +93,8 @@ TEST ( Atom , matchFailureToVarInstantedToDiffConstant ) {
 TEST ( Var , matchSuccessToNumber ) {
 	Variable X ( "X" );
 	Number number ( 5 );
-	X.matchToNumber ( number );
-	ASSERT_EQ ( "5" , X.get_symbol() );
+	X.match ( number );
+	ASSERT_EQ ( "5" , X.getSymbol() );
 }
 
 // ?- X=25, X= 100.
@@ -103,9 +103,9 @@ TEST ( Var , matchFailureToTwoDiffNumbers ) {
 	Variable X ( "X" );
 	Number numberOne ( 25 );
 	Number numberTwo ( 100 );
-	X.matchToNumber ( numberOne );
-	X.matchToNumber ( numberTwo );
-	ASSERT_FALSE ( ( "100" == X.get_symbol() ) ? true : false ); 
+	X.match ( numberOne );
+	X.match ( numberTwo );
+	ASSERT_FALSE ( ( "100" == X.getSymbol() ) ? true : false ); 
 }
 
 // ?- X=tom, X= 25.
@@ -114,9 +114,9 @@ TEST ( Var , matchSuccessToAtomThenFailureToNumber ) {
 	Variable X ( "X" );
 	Atom tom ( "tom" );
 	Number number ( 25 );
-	X.matchToAtom ( tom );
-	X.matchToNumber ( number );
-	ASSERT_FALSE ( ( "25" == X.get_symbol() ) ? true : false );
+	X.match ( tom );
+	X.match ( number );
+	ASSERT_FALSE ( ( "25" == X.getSymbol() ) ? true : false );
 }
 
 //?- tom=X, 25=X.
@@ -125,9 +125,9 @@ TEST ( Var , matchSuccessToAtomThenFailureToNumber2 ) {
 	Atom tom ( "tom" );
 	Variable X ( "X" );
 	Number number ( 25 );
-	tom.matchToVariable ( X );
-	number.matchToVariable ( X );
-	ASSERT_FALSE ( ( "25" == X.get_symbol() ) ? true : false );
+	tom.match ( X );
+	number.match ( X );
+	ASSERT_FALSE ( ( "25" == X.getSymbol() ) ? true : false );
 }
 
 //?- X=tom, X=tom.
@@ -135,9 +135,9 @@ TEST ( Var , matchSuccessToAtomThenFailureToNumber2 ) {
 TEST( Var , reAssignTheSameAtom ){
 	Variable X ( "X" );
 	Atom tom ( "tom" );
-	X.matchToAtom ( tom );
-	X.matchToAtom ( tom );
-	ASSERT_TRUE ( ( "tom" == X.get_symbol() ) ? true : false );
+	X.match ( tom );
+	X.match ( tom );
+	ASSERT_TRUE ( ( "tom" == X.getSymbol() ) ? true : false );
 }
 
 #endif
