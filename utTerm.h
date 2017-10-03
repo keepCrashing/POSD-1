@@ -82,8 +82,7 @@ TEST ( Atom , matchFailureToVarInstantedToDiffConstant ) {
 	Atom tom ( "tom" );
 	Atom jerry ( "jerry" );
 	X.match ( jerry );
-	tom.match ( X );
-	ASSERT_FALSE ( ( "tom" == X.value() ) ? true : false );
+	EXPECT_FALSE ( tom.match ( X ) );
 }
 
 // ?- X = 5.
@@ -91,8 +90,7 @@ TEST ( Atom , matchFailureToVarInstantedToDiffConstant ) {
 TEST ( Variable , matchSuccessToNumber ) {
 	Variable X ( "X" );
 	Number number ( 5 );
-	X.match ( number );
-	ASSERT_EQ ( "5" , X.value() );
+	EXPECT_TRUE ( X.match ( number ) );
 }
 
 // ?- X=25, X= 100.
@@ -102,8 +100,7 @@ TEST ( Variable , matchFailureToTwoDiffNumbers ) {
 	Number numberOne ( 25 );
 	Number numberTwo ( 100 );
 	X.match ( numberOne );
-	X.match ( numberTwo );
-	ASSERT_FALSE ( ( "100" == X.value() ) ? true : false ); 
+	EXPECT_FALSE ( X.match ( numberTwo ) );
 }
 
 // ?- X=tom, X= 25.
@@ -113,8 +110,7 @@ TEST ( Variable , matchSuccessToAtomThenFailureToNumber ) {
 	Atom tom ( "tom" );
 	Number number ( 25 );
 	X.match ( tom );
-	X.match ( number );
-	ASSERT_FALSE ( ( "25" == X.value() ) ? true : false );
+	EXPECT_FALSE ( X.match ( number ) );
 }
 
 //?- tom=X, 25=X.
@@ -124,8 +120,7 @@ TEST ( Variable , matchSuccessToAtomThenFailureToNumber2 ) {
 	Variable X ( "X" );
 	Number number ( 25 );
 	tom.match ( X );
-	number.match ( X );
-	ASSERT_FALSE ( ( "25" == X.value() ) ? true : false );
+	EXPECT_FALSE ( number.match ( X ) );
 }
 
 //?- X=tom, X=tom.
@@ -134,8 +129,7 @@ TEST( Variable , reAssignTheSameAtom ){
 	Variable X ( "X" );
 	Atom tom ( "tom" );
 	X.match ( tom );
-	X.match ( tom );
-	ASSERT_TRUE ( ( "tom" == X.value() ) ? true : false );
+	EXPECT_TRUE ( X.match ( tom ) );
 }
 
 #endif
