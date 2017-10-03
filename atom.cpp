@@ -4,7 +4,7 @@
 
 Atom :: Atom ( string a ) : _symbol ( a ) {}
 
-string Atom :: symbol ( ) { return _symbol; }
+string Atom :: symbol () { return _symbol; }
 
 bool Atom :: match ( Number number ) {
 	return false;

@@ -2,9 +2,8 @@
 #include "number.h"
 #include "atom.h"
 #include "variable.h"
-#include <iostream>
-using namespace std;
-//using std :: string;
+
+using std :: string;
 
 Number :: Number ( int n ) : _symbol ( n ) {}
 
