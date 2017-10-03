@@ -12,7 +12,7 @@ int Number :: symbol () { return _symbol; }
 int Number :: value () { return _symbol; }
 
 bool Number :: match ( Number number ){
-	return _symbol == number.symbol();
+	return ( std :: to_string (_symbol) ) == ( std :: to_string ( number.symbol() ) );
 }
 
 bool Number :: match ( Atom atom ){
