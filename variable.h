@@ -1,5 +1,5 @@
-#ifndef VARIABLE_H_INCLUDE
-#define VARIABLE_H_INCLUDE
+#ifndef VARIABLE_H
+#define VARIABLE_H
 
 #include <string>
 using std::string;

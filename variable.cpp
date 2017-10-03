@@ -3,6 +3,8 @@
 #include "number.h"
 #include "atom.h"
 
+using std :: string;
+
 Variable :: Variable ( string v ) : _value ( v ) {}
 
 bool Variable :: getAssignable () { return assignable; }

@@ -1,5 +1,5 @@
-#ifndef NUMBER_H_INCLUDE
-#define NUMBER_H_INCLUDE
+#ifndef NUMBER_H
+#define NUMBER_H
 
 #include <string>
 using std::string;

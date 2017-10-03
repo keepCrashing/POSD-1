@@ -3,6 +3,8 @@
 #include "atom.h"
 #include "variable.h"
 
+using std :: string;
+
 Number :: Number ( int n ) : _symbol ( n ) {}
 
 int Number :: symbol () { return _symbol; }

@@ -1,5 +1,5 @@
-#ifndef ATOM_H_INCLUDE
-#define ATOM_H_INCLUDE
+#ifndef ATOM_H
+#define ATOM_H
 
 #include <string>
 using std::string;
