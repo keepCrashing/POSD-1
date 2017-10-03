@@ -16,7 +16,7 @@ TEST ( Number , symbol ) {
 	Number number ( 15 ) ;
 	ASSERT_EQ ( 15 , number.symbol() );
 }
-/*
+
 //?- 25=25.
 //true.
 TEST ( Number , matchSuccess ) {
@@ -130,5 +130,5 @@ TEST( Variable , reAssignTheSameAtom ){
 	X.match ( tom );
 	ASSERT_TRUE ( X.match ( tom ) );
 }
-*/
+
 #endif
