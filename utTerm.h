@@ -16,7 +16,7 @@ TEST ( Number , symbol ) {
 	Number number ( 15 ) ;
 	ASSERT_EQ ( 15 , number.symbol() );
 }
-
+/*
 //?- 25=25.
 //true.
 TEST ( Number , matchSuccess ) {
@@ -32,7 +32,7 @@ TEST ( Number , matchFailureDiffValue ) {
         Number numberTwo ( 0 );
 	ASSERT_FALSE ( numberOne.match ( numberTwo ) );
 }
-/*
+
 //?- 25=tom.
 //false.
 TEST ( Number , matchFailureDiffConstant ) {

@@ -12,7 +12,7 @@ class Number {
 		Number ( int n ); 
 		int symbol();
 		int value();
-		bool match ( Number number );
+		//bool match ( Number number );
 		//bool match ( Atom atom );
 		//bool match ( Variable &variable );
 	private :

@@ -10,7 +10,7 @@ Number :: Number ( int n ) : _symbol ( n ) {}
 int Number :: symbol () { return _symbol; }
 
 int Number :: value () { return _symbol; }
-
+/*
 bool Number :: match ( Number number ){
 	//string a = std :: to_string ( _symbol );
 	//string b =  std :: to_string ( number.symbol() ); 
@@ -18,7 +18,7 @@ bool Number :: match ( Number number ){
 	//return ( (a == b) ? true : false );
 	return _symbol == number.symbol();
 }
-/*
+
 bool Number :: match ( Atom atom ){
 	return false;
 }
