@@ -11,13 +11,12 @@ class Number {
 	public :
 		Number ( int n ); 
 		int symbol();
-		bool value();
+		int value();
 		bool match ( Number number );
 		bool match ( Atom atom );
 		void match ( Variable &variable );
 	private :
 		const int _symbol;
-		const bool _value = true;
 };
 #endif
 

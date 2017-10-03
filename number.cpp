@@ -7,7 +7,7 @@ Number :: Number ( int n ) : _symbol ( n ) {}
 
 int Number :: symbol () { return _symbol; }
 
-bool Number :: value () { return _value; }
+int Number :: value () { return _symbol; }
 
 bool Number :: match ( Number number ){
 	return _symbol == number.symbol();

@@ -8,7 +8,7 @@
 //test Number.value()
 TEST ( Number , ctor ) {
 	Number number ( 15 );
-	ASSERT_TRUE ( number.value() );
+	ASSERT_EQ ( 15 , number.value() );
 }
 
 //test Number.symbol()
