@@ -3,14 +3,14 @@
 #include "atom.h"
 #include "variable.h"
 
-Number :: Number ( int n ) : symbol ( n ) {}
+Number :: Number ( int n ) : _symbol ( n ) {}
 
-int Number :: getSymbol () { return symbol; }
+int Number :: symbol () { return _symbol; }
 
-bool Number :: getValue () { return value; }
+bool Number :: value () { return _value; }
 
 bool Number :: match ( Number number ){
-	return symbol == number.getSymbol();
+	return _symbol == number.symbol();
 }
 
 bool Number :: match ( Atom atom ){
@@ -19,7 +19,7 @@ bool Number :: match ( Atom atom ){
 
 void Number :: match ( Variable &variable ){
 	std :: stringstream ss;
-	ss << symbol;
+	ss << _symbol;
 	if ( variable.getAssignable() || variable.getSymbol() == ss.str() ){
 		variable.setSymbol ( ss.str() );
 		variable.setAssignable ( false );	

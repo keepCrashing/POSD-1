@@ -22,7 +22,7 @@ void Variable :: match ( Atom atom ){
 
 void Variable :: match ( Number number ){
 	std :: stringstream ss;
-	ss << number.getSymbol();
+	ss << number.symbol();
 	if ( assignable || symbol == ss.str() ){
 		symbol = ss.str();
 		assignable = false;

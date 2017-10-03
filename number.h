@@ -10,14 +10,14 @@ class Variable;
 class Number {
 	public :
 		Number ( int n ); 
-		int getSymbol();
-		bool getValue();
+		int symbol();
+		bool value();
 		bool match ( Number number );
 		bool match ( Atom atom );
 		void match ( Variable &variable );
 	private :
-		const int symbol;
-		const bool value = true;
+		const int _symbol;
+		const bool _value = true;
 };
 #endif
 

@@ -8,13 +8,13 @@
 //test Number.value()
 TEST ( Number , ctor ) {
 	Number number ( 15 );
-	ASSERT_TRUE ( number.getValue() );
+	ASSERT_TRUE ( number.value() );
 }
 
 //test Number.symbol()
 TEST ( Number , symbol ) {
 	Number number ( 15 ) ;
-	ASSERT_EQ ( 15 , number.getSymbol() );
+	ASSERT_EQ ( 15 , number.symbol() );
 }
 
 //?- 25=25.
@@ -90,7 +90,7 @@ TEST ( Atom , matchFailureToVarInstantedToDiffConstant ) {
 
 // ?- X = 5.
 // X = 5.
-TEST ( Var , matchSuccessToNumber ) {
+TEST ( Variable , matchSuccessToNumber ) {
 	Variable X ( "X" );
 	Number number ( 5 );
 	X.match ( number );
@@ -99,7 +99,7 @@ TEST ( Var , matchSuccessToNumber ) {
 
 // ?- X=25, X= 100.
 // false.
-TEST ( Var , matchFailureToTwoDiffNumbers ) {
+TEST ( Variable , matchFailureToTwoDiffNumbers ) {
 	Variable X ( "X" );
 	Number numberOne ( 25 );
 	Number numberTwo ( 100 );
@@ -110,7 +110,7 @@ TEST ( Var , matchFailureToTwoDiffNumbers ) {
 
 // ?- X=tom, X= 25.
 // false.
-TEST ( Var , matchSuccessToAtomThenFailureToNumber ) {
+TEST ( Variable , matchSuccessToAtomThenFailureToNumber ) {
 	Variable X ( "X" );
 	Atom tom ( "tom" );
 	Number number ( 25 );
@@ -121,7 +121,7 @@ TEST ( Var , matchSuccessToAtomThenFailureToNumber ) {
 
 //?- tom=X, 25=X.
 //false.
-TEST ( Var , matchSuccessToAtomThenFailureToNumber2 ) {
+TEST ( Variable , matchSuccessToAtomThenFailureToNumber2 ) {
 	Atom tom ( "tom" );
 	Variable X ( "X" );
 	Number number ( 25 );
@@ -132,7 +132,7 @@ TEST ( Var , matchSuccessToAtomThenFailureToNumber2 ) {
 
 //?- X=tom, X=tom.
 //true.
-TEST( Var , reAssignTheSameAtom ){
+TEST( Variable , reAssignTheSameAtom ){
 	Variable X ( "X" );
 	Atom tom ( "tom" );
 	X.match ( tom );
