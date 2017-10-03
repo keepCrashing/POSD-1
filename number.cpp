@@ -15,7 +15,7 @@ bool Number :: match ( Number number ){
 	string a = std :: to_string ( _symbol );
 	string b =  std :: to_string ( number.symbol() ); 
 	//return ( std :: to_string (_symbol) ) == ( std :: to_string ( number.symbol() ) );
-	return a == b;
+	return ( (a == b) ? true : false );
 }
 
 bool Number :: match ( Atom atom ){
