@@ -10,7 +10,7 @@ class Number;
 class Variable{
 	public:
   		Variable ( string v );
-		bool getAssignable ();
+		bool assignable ();
 		string value ();
 		void setAssignable ( bool d );
 		void setValue ( string c );
@@ -18,7 +18,7 @@ class Variable{
 		bool match ( Number number );	
 	private:
 		string _value; 
-		bool assignable = true; 
+		bool _assignable = true; 
 };
 
 #endif

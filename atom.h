@@ -10,11 +10,11 @@ class Variable;
 class Atom {
 	public:
   		Atom ( string a );
-		string getSymbol();
+		string symbol();
 		bool match ( Number number );
 		bool match ( Variable &variable );
   	private:
-		const string symbol;
+		const string _symbol;
 };
 
 #endif

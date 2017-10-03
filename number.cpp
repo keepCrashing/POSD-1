@@ -2,8 +2,9 @@
 #include "number.h"
 #include "atom.h"
 #include "variable.h"
-
-using std :: string;
+#include <iostream>
+using namespace std;
+//using std :: string;
 
 Number :: Number ( int n ) : _symbol ( n ) {}
 
@@ -21,7 +22,7 @@ bool Number :: match ( Atom atom ){
 
 bool Number :: match ( Variable &variable ){
 	string temp = std :: to_string( _symbol );
-	if ( variable.getAssignable() || variable.value() == temp ){
+	if ( variable.assignable() || variable.value() == temp ){
 		variable.setValue ( temp );
 		variable.setAssignable ( false );
 		return true;	

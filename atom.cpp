@@ -2,17 +2,17 @@
 #include "number.h"
 #include "variable.h"
 
-Atom :: Atom ( string a ) : symbol ( a ) {}
+Atom :: Atom ( string a ) : _symbol ( a ) {}
 
-string Atom :: getSymbol ( ) { return symbol; }
+string Atom :: symbol ( ) { return _symbol; }
 
 bool Atom :: match ( Number number ) {
 	return false;
 }
 
 bool Atom :: match ( Variable &variable ){
-	if ( variable.getAssignable() || variable.value() == symbol ){
-		variable.setValue ( symbol );
+	if ( variable.assignable() || variable.value() == _symbol ){
+		variable.setValue ( _symbol );
 		variable.setAssignable (false);
 		return true;
 	}
