@@ -16,7 +16,8 @@ bool Number :: match ( Number number ){
 	//string b =  std :: to_string ( number.symbol() ); 
 	//return ( std :: to_string (_symbol) ) == ( std :: to_string ( number.symbol() ) );
 	//return ( (a == b) ? true : false );
-	return _symbol == number.symbol();
+	//return _symbol == number.symbol();
+	return true;
 }
 
 bool Number :: match ( Atom atom ){
@@ -24,12 +25,12 @@ bool Number :: match ( Atom atom ){
 }
 
 bool Number :: match ( Variable &variable ){
-	string temp = std :: to_string( _symbol );
-	if ( variable.assignable() || ( variable.value() == temp ) ){
-		variable.setValue ( temp );
-		variable.setAssignable ( false );
-		return true;	
-	}
+	//string temp = std :: to_string( _symbol );
+	//if ( variable.assignable() || ( variable.value() == temp ) ){
+	//	variable.setValue ( temp );
+	//	variable.setAssignable ( false );
+	//	return true;	
+	//}
 	return false; 
 } 
 
