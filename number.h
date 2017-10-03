@@ -16,7 +16,7 @@ class Number {
 		bool match ( Atom atom );
 		bool match ( Variable &variable );
 	private :
-		int _symbol;
+		int const _symbol;
 };
 #endif
 
