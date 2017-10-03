@@ -4,8 +4,8 @@
 #include <string>
 using std::string;
 
-class Atom;
-class Variable;
+//class Atom;
+//class Variable;
 
 class Number {
 	public :
@@ -13,8 +13,8 @@ class Number {
 		int symbol();
 		int value();
 		bool match ( Number number );
-		bool match ( Atom atom );
-		bool match ( Variable &variable );
+		//bool match ( Atom atom );
+		//bool match ( Variable &variable );
 	private :
 		int const _symbol;
 };
