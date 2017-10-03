@@ -1,15 +1,16 @@
+#include <sstream>
 #include "Number.h"
 #include "Atom.h"
 #include "Variable.h"
 
-Number :: Number (string symbol , string value ) : _symbol ( symbol ) , _value ( value ){}
+Number :: Number (string symbol , int value ) : _symbol ( symbol ) , _value ( value ){}
 
 string Number :: get_symbol () { return _symbol; }
 
-string Number :: get_value () { return _value; }
+int Number :: get_value () { return _value; }
 
 bool Number :: matchToNumber ( Number number ){
-	return _value == number._value;
+	return _value == number.get_value();
 }
 
 bool Number :: matchToAtom ( Atom atom ){
@@ -17,8 +18,10 @@ bool Number :: matchToAtom ( Atom atom ){
 }
 
 void Number :: matchToVariable ( Variable &variable ){
-	if ( variable.get_assignable() || variable.get_symbol() == _value){
-		variable.set_symbol ( _value );
+	std :: stringstream ss;
+	ss << _value;
+	if ( variable.get_assignable() || variable.get_symbol() == ss.str() ){
+		variable.set_symbol ( ss.str() );
 		variable.set_assignable ( false );	
 	}
 } 

@@ -1,3 +1,4 @@
+#include <sstream>
 #include "Variable.h"
 #include "Number.h"
 #include "Atom.h"
@@ -20,8 +21,10 @@ void Variable :: matchToAtom ( Atom atom ){
 }
 
 void Variable :: matchToNumber ( Number number ){
-	if ( _assignable || _symbol == number.get_value() ){
-		_symbol = number.get_value();
+	std :: stringstream ss;
+	ss << number.get_value();
+	if ( _assignable || _symbol == ss.str() ){
+		_symbol = ss.str();
 		_assignable = false;
 	}
 }

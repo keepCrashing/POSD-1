@@ -1,42 +1,42 @@
 #ifndef UTTERM_H
 #define UTTERM_H
 
+#include "Number.h"
 #include "Atom.h"
 #include "Variable.h"
-#include "Number.h"
 
 //test Number.value()
 TEST ( Number , ctor ) {
-	Number number ( "one" , "15" );
-	ASSERT_EQ ( "15" , number.get_value() );
+	Number number ( "one" , 15 );
+	ASSERT_EQ ( 15 , number.get_value() );
 }
 
 //test Number.symbol()
 TEST ( Number , symbol ) {
-	Number number ( "one" , "15" ) ;
+	Number number ( "one" , 15 ) ;
 	ASSERT_EQ ( "one" , number.get_symbol() );
 }
 
 //?- 25=25.
 //true.
 TEST ( Number , matchSuccess ) {
-	Number number1 ( "one" , "25" );
-        Number number2 ( "two" , "25");
+	Number number1 ( "one" , 25 );
+        Number number2 ( "two" , 25 );
 	ASSERT_TRUE ( number1.matchToNumber ( number2 ) );
 }
 
 //?- 25=0.
 //false.
 TEST ( Number , matchFailureDiffValue ) {
-	Number number1 ( "one" , "25" );
-        Number number2 ( "two" , "0" );
+	Number number1 ( "one" , 25 );
+        Number number2 ( "two" , 0 );
 	ASSERT_FALSE ( number1.matchToNumber ( number2 ) );
 }
 
 //?- 25=tom.
 //false.
 TEST ( Number , matchFailureDiffConstant ) {
-	Number number ( "one" , "25" );
+	Number number ( "one" , 25 );
 	Atom tom( "tom" );
 	ASSERT_FALSE ( number.matchToAtom ( tom ) );	
 }
@@ -44,7 +44,7 @@ TEST ( Number , matchFailureDiffConstant ) {
 //?- 25=X.
 //true.
 TEST ( Number , matchSuccessToVar ) {
-	Number number ( "one" , "25" );
+	Number number ( "one" , 25 );
 	Variable X ( "X" );
 	number.matchToVariable ( X );
 	ASSERT_EQ ( "25" , X.get_symbol() );
@@ -54,7 +54,7 @@ TEST ( Number , matchSuccessToVar ) {
 //false.
 TEST ( Atom , matchFailureDiffConstant ) {
 	Atom tom ( "tom" );
-	Number number ( "one" , "25" );
+	Number number ( "one" , 25 );
 	ASSERT_FALSE ( tom.matchToNumber ( number ) );
 }
 
@@ -92,7 +92,7 @@ TEST ( Atom , matchFailureToVarInstantedToDiffConstant ) {
 // X = 5.
 TEST ( Var , matchSuccessToNumber ) {
 	Variable X ( "X" );
-	Number number ( "one" , "5" );
+	Number number ( "one" , 5 );
 	X.matchToNumber ( number );
 	ASSERT_EQ ( "5" , X.get_symbol() );
 }
@@ -101,8 +101,8 @@ TEST ( Var , matchSuccessToNumber ) {
 // false.
 TEST ( Var , matchFailureToTwoDiffNumbers ) {
 	Variable X ( "X" );
-	Number number1 ( "one" , "25" );
-	Number number2 ( "two" , "100" );
+	Number number1 ( "one" , 25 );
+	Number number2 ( "two" , 100 );
 	X.matchToNumber ( number1 );
 	X.matchToNumber ( number2 );
 	ASSERT_FALSE ( ( "100" == X.get_symbol() ) ? true : false ); 
@@ -113,7 +113,7 @@ TEST ( Var , matchFailureToTwoDiffNumbers ) {
 TEST ( Var , matchSuccessToAtomThenFailureToNumber ) {
 	Variable X ( "X" );
 	Atom tom ( "tom" );
-	Number number ( "one" , "25" );
+	Number number ( "one" , 25 );
 	X.matchToAtom ( tom );
 	X.matchToNumber ( number );
 	ASSERT_FALSE ( ( "25" == X.get_symbol() ) ? true : false );
@@ -124,7 +124,7 @@ TEST ( Var , matchSuccessToAtomThenFailureToNumber ) {
 TEST ( Var , matchSuccessToAtomThenFailureToNumber2 ) {
 	Atom tom ( "tom" );
 	Variable X ( "X" );
-	Number number ( "one" , "25" );
+	Number number ( "one" , 25 );
 	tom.matchToVariable ( X );
 	number.matchToVariable ( X );
 	ASSERT_FALSE ( ( "25" == X.get_symbol() ) ? true : false );

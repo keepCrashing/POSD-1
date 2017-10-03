@@ -16,3 +16,4 @@ void Atom :: matchToVariable ( Variable &variable ){
 		variable.set_assignable (false);
 	}
 }
+

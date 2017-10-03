@@ -1,6 +1,6 @@
 all: hw2
 
-hw2: main.o Number.o Atom.o Variable.o 
+hw2: main.o Number.o Atom.o Variable.o
 ifeq (${OS}, Windows_NT)
 	g++ -o hw2 main.o Number.o Atom.o Variable.o -lgtest
 else
