@@ -14,7 +14,7 @@ class Number {
 		int value();
 		bool match ( Number number );
 		bool match ( Atom atom );
-		void match ( Variable &variable );
+		bool match ( Variable &variable );
 	private :
 		const int _symbol;
 };

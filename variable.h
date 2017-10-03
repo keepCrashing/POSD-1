@@ -14,8 +14,8 @@ class Variable{
 		string value ();
 		void setAssignable ( bool d );
 		void setValue ( string c );
-		void match ( Atom atom );
-		void match ( Number number );	
+		bool match ( Atom atom );
+		bool match ( Number number );	
 	private:
 		string _value; 
 		bool assignable = true; 

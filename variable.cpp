@@ -13,18 +13,22 @@ void Variable :: setAssignable ( bool d ) { assignable = d; }
 
 void Variable :: setValue ( string c ) { _value = c; }
 
-void Variable :: match ( Atom atom ){
+bool Variable :: match ( Atom atom ){
 	if ( assignable || _value == atom.getSymbol() ){
 		_value = atom.getSymbol();
 		assignable = false;	
+		return true;
 	}
+	return false;
 }
 
-void Variable :: match ( Number number ){
+bool Variable :: match ( Number number ){
 	std :: stringstream ss;
 	ss << number.symbol();
 	if ( assignable || _value == ss.str() ){
 		_value = ss.str();
 		assignable = false;
+		return true;
 	}
+	return false;
 }

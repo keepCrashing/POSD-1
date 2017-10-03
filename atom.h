@@ -12,7 +12,7 @@ class Atom {
   		Atom ( string a );
 		string getSymbol();
 		bool match ( Number number );
-		void match ( Variable &variable );
+		bool match ( Variable &variable );
   	private:
 		const string symbol;
 };

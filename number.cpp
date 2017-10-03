@@ -17,12 +17,14 @@ bool Number :: match ( Atom atom ){
 	return false;
 }
 
-void Number :: match ( Variable &variable ){
+bool Number :: match ( Variable &variable ){
 	std :: stringstream ss;
 	ss << _symbol;
 	if ( variable.getAssignable() || variable.value() == ss.str() ){
 		variable.setValue ( ss.str() );
-		variable.setAssignable ( false );	
+		variable.setAssignable ( false );
+		return true;	
 	}
+	return false; 
 } 
 

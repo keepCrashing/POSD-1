@@ -46,8 +46,7 @@ TEST ( Number , matchFailureDiffConstant ) {
 TEST ( Number , matchSuccessToVar ) {
 	Number number ( 25 );
 	Variable X ( "X" );
-	number.match ( X );
-	EXPECT_TRUE ( ( "25" == X.value() ) ? true : false );
+	EXPECT_TRUE ( number.match ( X ) );
 }
 
 //?- tom=25.
@@ -63,8 +62,7 @@ TEST ( Atom , matchFailureDiffConstant ) {
 TEST ( Atom , matchSuccessToVar ) {
 	Atom tom ( "tom" );
 	Variable X ( "X" );
-	tom.match ( X );
-	EXPECT_TRUE ( ( "tom" == X.value() ) ? true : false );
+	EXPECT_TRUE ( tom.match ( X ) );
 }
 
 // ?- X=tom, tom=X.
