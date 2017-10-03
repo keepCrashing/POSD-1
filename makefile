@@ -10,13 +10,13 @@ else
 endif
 
 main.o: main.cpp utTerm.h
-	g++ -std=c++11 -c main.cpp
+	g++ -std=gnu++0x -c main.cpp
 Number.o: $(INC_DIR)/Number.h Number.cpp
-	g++ -std=c++11 -c Number.cpp
+	g++ -std=gnu++0x -c Number.cpp
 Atom.o: $(INC_DIR)/Atom.h Atom.cpp
-	g++ -std=c++11 -c Atom.cpp
+	g++ -std=gnu++0x -c Atom.cpp
 Variable.o: $(INC_DIR)/Variable.h Variable.cpp
-	g++ -std=c++11 -c Variable.cpp
+	g++ -std=gnu++0x -c Variable.cpp
 
 clean:
 ifeq (${OS}, Windows_NT)
