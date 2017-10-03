@@ -1,7 +1,7 @@
 #include <string>
 #include "number.h"
-#include "atom.h"
-#include "variable.h"
+//#include "atom.h"
+//#include "variable.h"
 
 using std :: string;
 
@@ -12,12 +12,13 @@ int Number :: symbol () { return _symbol; }
 int Number :: value () { return _symbol; }
 
 bool Number :: match ( Number number ){
-	string a = std :: to_string ( _symbol );
-	string b =  std :: to_string ( number.symbol() ); 
+	//string a = std :: to_string ( _symbol );
+	//string b =  std :: to_string ( number.symbol() ); 
 	//return ( std :: to_string (_symbol) ) == ( std :: to_string ( number.symbol() ) );
-	return ( (a == b) ? true : false );
+	//return ( (a == b) ? true : false );
+	return _symbol == number.symbol();
 }
-
+/*
 bool Number :: match ( Atom atom ){
 	return false;
 }
@@ -31,4 +32,4 @@ bool Number :: match ( Variable &variable ){
 	}
 	return false; 
 } 
-
+*/

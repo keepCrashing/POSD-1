@@ -32,7 +32,7 @@ TEST ( Number , matchFailureDiffValue ) {
         Number numberTwo ( 0 );
 	ASSERT_FALSE ( numberOne.match ( numberTwo ) );
 }
-
+/*
 //?- 25=tom.
 //false.
 TEST ( Number , matchFailureDiffConstant ) {
@@ -130,4 +130,5 @@ TEST( Variable , reAssignTheSameAtom ){
 	X.match ( tom );
 	ASSERT_TRUE ( X.match ( tom ) );
 }
+*/
 #endif
