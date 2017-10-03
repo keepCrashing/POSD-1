@@ -1,20 +1,20 @@
 all: hw2
 
-hw2: main.o Number.o Atom.o Variable.o
+hw2: main.o number.o atom.o variable.o
 ifeq (${OS}, Windows_NT)
-	g++ -o hw2 main.o Number.o Atom.o Variable.o -lgtest
+	g++ -o hw2 main.o number.o atom.o variable.o -lgtest
 else
-	g++ -o hw2 main.o Number.o Atom.o Variable.o -lgtest -lpthread
+	g++ -o hw2 main.o number.o atom.o variable.o -lgtest -lpthread
 endif
 
 main.o: main.cpp utTerm.h
 	g++ -std=gnu++0x -c main.cpp
-Number.o: Number.h Number.cpp
-	g++ -std=gnu++0x -c Number.cpp
-Atom.o: Atom.h Atom.cpp
-	g++ -std=gnu++0x -c Atom.cpp
-Variable.o: Variable.h Variable.cpp
-	g++ -std=gnu++0x -c Variable.cpp
+number.o: number.h number.cpp
+	g++ -std=gnu++0x -c number.cpp
+atom.o: atom.h atom.cpp
+	g++ -std=gnu++0x -c atom.cpp
+variable.o: variable.h variable.cpp
+	g++ -std=gnu++0x -c variable.cpp
 
 clean:
 ifeq (${OS}, Windows_NT)

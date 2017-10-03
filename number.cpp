@@ -1,7 +1,7 @@
 #include <sstream>
-#include "Number.h"
-#include "Atom.h"
-#include "Variable.h"
+#include "number.h"
+#include "atom.h"
+#include "variable.h"
 
 Number :: Number ( int n ) : symbol ( n ) {}
 

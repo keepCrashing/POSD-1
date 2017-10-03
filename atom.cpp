@@ -1,6 +1,6 @@
-#include "Atom.h"
-#include "Number.h"
-#include "Variable.h"
+#include "atom.h"
+#include "number.h"
+#include "variable.h"
 
 Atom :: Atom ( string a ) : symbol ( a ) {}
 
