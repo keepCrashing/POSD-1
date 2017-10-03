@@ -3,19 +3,19 @@
 #include "number.h"
 #include "atom.h"
 
-Variable :: Variable ( string v ) : symbol ( v ) {}
+Variable :: Variable ( string v ) : _value ( v ) {}
 
 bool Variable :: getAssignable () { return assignable; }
 
-string Variable :: getSymbol () { return symbol; } 
+string Variable :: value () { return _value; } 
 
 void Variable :: setAssignable ( bool d ) { assignable = d; }
 
-void Variable :: setSymbol ( string c ) { symbol = c; }
+void Variable :: setValue ( string c ) { _value = c; }
 
 void Variable :: match ( Atom atom ){
-	if ( assignable || symbol == atom.getSymbol() ){
-		symbol = atom.getSymbol();
+	if ( assignable || _value == atom.getSymbol() ){
+		_value = atom.getSymbol();
 		assignable = false;	
 	}
 }
@@ -23,8 +23,8 @@ void Variable :: match ( Atom atom ){
 void Variable :: match ( Number number ){
 	std :: stringstream ss;
 	ss << number.symbol();
-	if ( assignable || symbol == ss.str() ){
-		symbol = ss.str();
+	if ( assignable || _value == ss.str() ){
+		_value = ss.str();
 		assignable = false;
 	}
 }

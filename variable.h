@@ -11,13 +11,13 @@ class Variable{
 	public:
   		Variable ( string v );
 		bool getAssignable ();
-		string getSymbol ();
+		string value ();
 		void setAssignable ( bool d );
-		void setSymbol ( string c );
+		void setValue ( string c );
 		void match ( Atom atom );
 		void match ( Number number );	
 	private:
-		string symbol; 
+		string _value; 
 		bool assignable = true; 
 };
 

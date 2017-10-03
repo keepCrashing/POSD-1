@@ -20,8 +20,8 @@ bool Number :: match ( Atom atom ){
 void Number :: match ( Variable &variable ){
 	std :: stringstream ss;
 	ss << _symbol;
-	if ( variable.getAssignable() || variable.getSymbol() == ss.str() ){
-		variable.setSymbol ( ss.str() );
+	if ( variable.getAssignable() || variable.value() == ss.str() ){
+		variable.setValue ( ss.str() );
 		variable.setAssignable ( false );	
 	}
 } 

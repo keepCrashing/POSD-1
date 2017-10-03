@@ -11,8 +11,8 @@ bool Atom :: match ( Number number ) {
 }
 
 void Atom :: match ( Variable &variable ){
-	if ( variable.getAssignable() || variable.getSymbol() == symbol ){
-		variable.setSymbol( symbol );
+	if ( variable.getAssignable() || variable.value() == symbol ){
+		variable.setValue ( symbol );
 		variable.setAssignable (false);
 	}
 }

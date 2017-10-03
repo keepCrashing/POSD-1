@@ -47,7 +47,7 @@ TEST ( Number , matchSuccessToVar ) {
 	Number number ( 25 );
 	Variable X ( "X" );
 	number.match ( X );
-	ASSERT_EQ ( "25" , X.getSymbol() );
+	ASSERT_EQ ( "25" , X.value() );
 }
 
 //?- tom=25.
@@ -64,7 +64,7 @@ TEST ( Atom , matchSuccessToVar ) {
 	Atom tom ( "tom" );
 	Variable X ( "X" );
 	tom.match ( X );
-	ASSERT_EQ ( "tom" , X.getSymbol() );
+	ASSERT_EQ ( "tom" , X.value() );
 }
 
 // ?- X=tom, tom=X.
@@ -74,7 +74,7 @@ TEST ( Atom , matchSuccessToVarInstantedToDiffConstant ) {
 	Atom tom ( "tom" );
 	X.match ( tom );
 	tom.match ( X );
-	ASSERT_EQ ( "tom" , X.getSymbol());
+	ASSERT_EQ ( "tom" , X.value());
 }
 
 // ?- X=jerry, tom=X.
@@ -85,7 +85,7 @@ TEST ( Atom , matchFailureToVarInstantedToDiffConstant ) {
 	Atom jerry ( "jerry" );
 	X.match ( jerry );
 	tom.match ( X );
-	ASSERT_FALSE ( ( "tom" == X.getSymbol() ) ? true : false );
+	ASSERT_FALSE ( ( "tom" == X.value() ) ? true : false );
 }
 
 // ?- X = 5.
@@ -94,7 +94,7 @@ TEST ( Variable , matchSuccessToNumber ) {
 	Variable X ( "X" );
 	Number number ( 5 );
 	X.match ( number );
-	ASSERT_EQ ( "5" , X.getSymbol() );
+	ASSERT_EQ ( "5" , X.value() );
 }
 
 // ?- X=25, X= 100.
@@ -105,7 +105,7 @@ TEST ( Variable , matchFailureToTwoDiffNumbers ) {
 	Number numberTwo ( 100 );
 	X.match ( numberOne );
 	X.match ( numberTwo );
-	ASSERT_FALSE ( ( "100" == X.getSymbol() ) ? true : false ); 
+	ASSERT_FALSE ( ( "100" == X.value() ) ? true : false ); 
 }
 
 // ?- X=tom, X= 25.
@@ -116,7 +116,7 @@ TEST ( Variable , matchSuccessToAtomThenFailureToNumber ) {
 	Number number ( 25 );
 	X.match ( tom );
 	X.match ( number );
-	ASSERT_FALSE ( ( "25" == X.getSymbol() ) ? true : false );
+	ASSERT_FALSE ( ( "25" == X.value() ) ? true : false );
 }
 
 //?- tom=X, 25=X.
@@ -127,7 +127,7 @@ TEST ( Variable , matchSuccessToAtomThenFailureToNumber2 ) {
 	Number number ( 25 );
 	tom.match ( X );
 	number.match ( X );
-	ASSERT_FALSE ( ( "25" == X.getSymbol() ) ? true : false );
+	ASSERT_FALSE ( ( "25" == X.value() ) ? true : false );
 }
 
 //?- X=tom, X=tom.
@@ -137,7 +137,7 @@ TEST( Variable , reAssignTheSameAtom ){
 	Atom tom ( "tom" );
 	X.match ( tom );
 	X.match ( tom );
-	ASSERT_TRUE ( ( "tom" == X.getSymbol() ) ? true : false );
+	ASSERT_TRUE ( ( "tom" == X.value() ) ? true : false );
 }
 
 #endif
