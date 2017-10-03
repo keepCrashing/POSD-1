@@ -134,7 +134,7 @@ TEST ( Variable , matchSuccessToAtomThenFailureToNumber2 ) {
 //true.
 TEST( Variable , reAssignTheSameAtom ){
 	Variable X ( "X" );
-	Atom tom ( "tom" );
+	Atom tom ( "XXX" );
 	X.match ( tom );
 	X.match ( tom );
 	ASSERT_TRUE ( ( "tom" == X.value() ) ? true : false );
