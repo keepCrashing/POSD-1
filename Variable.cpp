@@ -1,6 +1,6 @@
-#include "include/Variable.h"
-#include "include/Number.h"
-#include "include/Atom.h"
+#include "Variable.h"
+#include "Number.h"
+#include "Atom.h"
 
 Variable :: Variable ( string variable ) : _symbol ( variable ) {}
 

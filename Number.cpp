@@ -1,6 +1,6 @@
-#include "include/Number.h"
-#include "include/Atom.h"
-#include "include/Variable.h"
+#include "Number.h"
+#include "Atom.h"
+#include "Variable.h"
 
 Number :: Number (string symbol , string value ) : _symbol ( symbol ) , _value ( value ){}
 
