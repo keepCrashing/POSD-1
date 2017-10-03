@@ -1,4 +1,4 @@
-all: hw
+all: hw2
 
 hw2: main.o number.o atom.o variable.o
 ifeq (${OS}, Windows_NT)
